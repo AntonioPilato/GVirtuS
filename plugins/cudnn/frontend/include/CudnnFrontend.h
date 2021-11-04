@@ -31,6 +31,7 @@
 #include <list>
 #include <iostream>
 
+#include <cuda_runtime_api.h>
 #include <cudnn.h>
 
 #include <gvirtus/frontend/Frontend.h>

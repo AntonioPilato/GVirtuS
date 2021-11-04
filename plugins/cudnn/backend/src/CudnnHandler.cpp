@@ -349,6 +349,8 @@ void CudnnHandler::Initialize(){
     mspHandlers->insert(CUDNN_ROUTINE_HANDLER_PAIR(DestroyFusedOpsPlan));
     mspHandlers->insert(CUDNN_ROUTINE_HANDLER_PAIR(MakeFusedOpsPlan));
     mspHandlers->insert(CUDNN_ROUTINE_HANDLER_PAIR(FusedOpsExecute));
+    mspHandlers->insert(CUDNN_ROUTINE_HANDLER_PAIR(SetRNNDescriptor_v6));
+    mspHandlers->insert(CUDNN_ROUTINE_HANDLER_PAIR(SetRNNDescriptor_v5)); 
 }
 
 

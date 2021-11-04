@@ -27,7 +27,7 @@
 #include <cstdio>
 #include <string>
 
-#include "CudnnFrontend.h"
+#include "CudnnFronted.h"
 
 using namespace std;
 
@@ -42,20 +42,20 @@ extern "C" cudnnStatus_t CUDNNWINAPI cudnnCreate        (cudnnHandle_t *handle) 
 
 extern "C" cudnnStatus_t CUDNNWINAPI cudnnDestroy       (cudnnHandle_t handle) {
     CudnnFrontend::Prepare();
-    CudnnFrontend::AddDevicePointerForArguments(handle);
+    CudnnFrontend::AddVariableForArguments(handle);
     CudnnFrontend::Execute("cudnnDestroy");
     return CudnnFrontend::GetExitCode();
 }
 extern "C" cudnnStatus_t CUDNNWINAPI cudnnSetStream     (cudnnHandle_t handle, cudaStream_t streamId) {
     CudnnFrontend::Prepare();
-    CudnnFrontend::AddDevicePointerForArguments(handle);
-    CudnnFrontend::AddDevicePointerForArguments(streamId);
+    CudnnFrontend::AddVariableForArguments(handle);
+    CudnnFrontend::AddVariableForArguments(streamId);
     CudnnFrontend::Execute("cudnnSetStream");
     return CudnnFrontend::GetExitCode();
 }
 extern "C" cudnnStatus_t CUDNNWINAPI cudnnGetStream     (cudnnHandle_t handle, cudaStream_t *streamId) {
     CudnnFrontend::Prepare();
-    CudnnFrontend::AddDevicePointerForArguments(handle);
+    CudnnFrontend::AddVariableForArguments(handle);
     CudnnFrontend::Execute("cudnnGetStream");
     return CudnnFrontend::GetExitCode();    
 }
