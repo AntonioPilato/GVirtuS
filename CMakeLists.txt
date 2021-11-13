@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.17)
 project(GVirtuS)
 
 if("$ENV{GVIRTUS_HOME}" STREQUAL "")
@@ -39,7 +39,6 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/nlohmann DESTINATION ${GVI
 install(DIRECTORY ${EXTERNAL_INSTALL_LOCATION}/include/log4cplus DESTINATION ${GVIRTUS_HOME}/include)
 install(DIRECTORY ${EXTERNAL_INSTALL_LOCATION}/lib DESTINATION ${GVIRTUS_HOME})
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/etc DESTINATION ${GVIRTUS_HOME})
-#install(FILES cmake/GVirtuS.cmake DESTINATION ${GVIRTUS_HOME}/cmake/)
 
 add_library(gvirtus-communicators SHARED
         src/communicators/Buffer.cpp
@@ -76,6 +75,5 @@ add_subdirectory(plugins/cudnn)
 #add_subdirectory(plugins/cusolver)
 #add_subdirectory(plugins/cusparse)
 
-add_subdirectory(tools/protocol-generator)
+#add_subdirectory(tools/protocol-generator)
 
-add_subdirectory(demos)
